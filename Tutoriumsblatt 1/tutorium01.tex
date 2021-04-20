@@ -1,0 +1,87 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm, bindingoffset=5mm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[explicit]{titlesec}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\e}{\mathbf{e}}
+
+\titleformat{\section}{\Large\bfseries}{}{0mm}{#1 \thesection}
+\newcommand{\ex}{\section{Aufgabe}}
+\renewcommand{\P}{\mathbb{P}}
+
+\begin{document}
+	\ex
+		\begin{enumerate}[label=\alph*), labelwidth=!, labelindent=0pt]
+			\item
+			\item Zeigen Sie, dass
+				\[
+					(a_1, a_2, a_3) = \prod_{p\in\P} p^{\min\{\nu_p(a_1), \nu_p(a_2), \nu_p(a_3)\}}
+				\]
+				\textbf{Beweis:} Es gilt
+				\begin{align*}
+					a_1 &= \prod_{p\in\P} p^{\nu_p(a_1)} & a_2 &= \prod_{p\in\P} p^{\nu_p(a_2)} &a_3 &= \prod_{p\in\P} p^{\nu_p(a_3)} &
+				\end{align*}
+				Damit werden $a_1, a_2$ und $a_3$ höchstens $\min\{\nu_p(a_1), \nu_p(a_2), \nu_p(a_3)\}$-mal mit einer Primzahl $p \in \P$ geteilt, insbesondere gilt dann:
+				\[
+					p^{\min\{\nu_p(a_1), \nu_p(a_2), \nu_p(a_3)\}} \mid (a_1, a_2, a_3)
+				\]
+				Nun sind aber Primfaktorzerlegungen eindeutig und damit kann es keinen Teiler  von  $(a_1,a_2,a_3)$ geben, welcher sich nicht p-adisch darstellen lässt.
+				\[
+					\Rightarrow \qquad (a_1, a_2, a_3) = \prod_{p\in\P} p^{\min\{\nu_p(a_1), \nu_p(a_2), \nu_p(a_3)\}}
+				\] \hfill $\square$
+				\item induktiv können wir $(a_1, \dots, a_n)$ zu $(a_1, (a_2, \dots, a_n))$ umschreiben und so den ggT endlich vieler Zahlen $a_1,\dots,a_n \in \mathbb{Z}$ bestimmen. Ebenso folgt dann, dass
+				\[
+					(a_1, \dots, a_n) = \prod_{p\in\P}p^{\min\{\nu_p(a_1),\;\min\{\nu_p(a_2), \dots, \nu_p(a_n)\}\}} = \prod_{p\in\P}p^{\min\{\nu_p(a_1),\;\dots,\;\nu_p(a_n)\}}
+				\] \hfill $\square$
+				\item Es gilt $[a_1,a_2](a_1,a_2) = |a_1a_2|$\\
+				\textbf{Beweis:} Wir betrachten
+				\[
+					|a_1a_2| = \prod_{p\in\P}p^{\nu_p(a_1)}\prod_{p\in\P}p^{\nu_p(a_2)} = \prod_{p\in\P}p^{\nu_p(a_1)}p^{\nu_p(a_2)} = \prod_{p\in\P}p^{\nu_p(a_1)+\nu_p(a_2)} \quad.
+				\]
+				Nun ist entweder $\nu_p(a_1) > \nu_p(a_2)$, $\nu_p(a_1) < \nu_p(a_2)$ oder $\nu_p(a_1) = \nu_p(a_2)$. Damit ist $\min$ und $\max$ eine der beiden Bewertungen $\nu_p(a_1)$ oder $\nu_p(a_2)$ und $\min = \max$ nur wenn $\nu_p(a_1) = \nu_p(a_2)$ gilt.
+				\[
+					\Rightarrow \qquad [a_1,a_2](a_1,a_2) = \prod_{p\in\P}p^{\min\{\nu_p(a_1),\nu_p(a_2)\}+\max\{\nu_p(a_1),\nu_p(a_2)\}} =  \prod_{p\in\P}p^{\nu_p(a_1)+\nu_p(a_2)} = |a_1a_2|
+				\]  \hfill $\square$
+		\end{enumerate}
+
+\newpage
+
+	\ex
+		Wir betrachten die beiden diophantischen Gleichungen
+		\[
+			(i)\quad 561x_1 + 273x_2 + 117x_3 = 27 \qquad \text{und} \qquad (ii)\quad 561x_1 + 273x_2 + 117x_3 = 41\quad.
+		\]
+		\begin{enumerate}[label=\alph*), labelwidth=!, labelindent=0pt]
+			\item Welche der beiden Gleichungen besitzt eine ganzzahlige Lösung $x_1, x_2, x_3$?\\
+				\textbf{Beweis:} Wir betrachten die beiden Gleichungen im $\mathbb{Z}_3$:
+				\[
+					(i)\quad 0x_1 + 0x_2 + 0 = 0 \qquad \text{und} \qquad (ii) \quad  0x_1 + 0x_2 + 0x_3 = 2\quad.
+				\]
+				Damit lässt sich also nur $(i)$ ganzzahlig Lösen.
+			\item z.B. $x_1 = 7$, $x_2 = 2$ und $x_3 = -38$
+		\end{enumerate}
+
+	\ex
+		Wir betrachten die kanonische Quotientenabbildung $\pi : \mathbb{Z} \to \mathbb{Z}_4$ und schreiben $[x] := \pi(x)$  für die Restklasse von $x$ in $\mathbb{Z}_4$.
+		\begin{enumerate}[label=\alph*), labelwidth=!, labelindent=0pt]
+			\item Ist $p \in \P \setminus \{2\}$, so ist $[p] \in \{[1], [-1]\}$.\\
+			\textbf{Beweis:} Widerspruch: Wäre $[p] \in \{[0], [2]\}$, dann würde $2 \mid p$ gelten, denn $2 \mid 4$, und $p$ wäre keine Primzahl. \hfill $\square$
+			\item Ist $n \in \mathbb{N}$ mit $[n] = [-1]$, so existiert ein Primteiler $p$ von $n$ mit $[p] = [-1]$.\\
+			\textbf{Beweis:} Es gilt
+			\[
+				n = \prod_{p\in\P} p^{\nu_p(n)} \Rightarrow [n] = \left[\prod_{p\in\P} p^{\nu_p(n)}\right] = \prod_{p\in\P} [p]^{\nu_p(n)}
+			\]
+			Da nach a) $p \in \{[-1], [1]\}$ gilt muss für $[n] = [-1]$ ein Faktor $[-1]$ existieren.\\
+			Umgekehrt gilt die Aussage nicht: Bsp. $[-1]^2 = [1] = n \neq [-1]$ enthält $[-1]$ als Faktor. \hfill $\square$
+			\item Es gibt unendlich viele $p\in\P$ mit $[p] = [-1]$.\\
+			\textbf{Beweis:} Es sei $\P_n$ die Menge der ersten $n \in \mathbb{N}$ Primzahlen. Da $2 \in \P_1 \subsetneq \P_2 \subsetneq \dots \subsetneq\P_n$ ist und $\forall p \in \P \setminus \{2\} : [p] \in \{[-1], [1]\}$, und somit $[2][-1] = [-2] = [2]$, gilt:
+				\[
+					\left[1 + \prod_{p\in\P_n}p\right] = [1] + \left[\prod_{p\in\P_n}p\right] = [1] + [2]\left[\prod_{p\in\P_n\setminus\{2\}}p\right] = [1] + [2][\pm1] = [-1]
+				\]
+				Da alle Faktoren in $m := 1 + \prod_{p\in\P_n}p$ teilerfremd zu allen $\P_n$ sind, aber $[m] = [-1]$ existiert nach b) ein teilerfremder Primfaktor $p$ von $m$ mit $[p] = [-1]$. Wähle $n$ beliebig groß $\Rightarrow$ Behauptung \hfill $\square$
+		\end{enumerate}
+\end{document}
